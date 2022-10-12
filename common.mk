@@ -34,6 +34,11 @@ ifndef DAYS_OF_VALIDITY
 DAYS_OF_VALIDITY := 3650
 endif
 
+
+ifndef CA_ROOT_NAME
+CA_ROOT_NAME := "/CN=TLSGenSelfSignedtRootCA {}/L=$$$$/".format(iso_date)
+endif
+
 ifndef ECC_CURVE
 ECC_CURVE := "prime256v1"
 endif
@@ -62,7 +67,8 @@ gen:
 	--client-alt-name $(CLIENT_ALT_NAME) \
 	--server-alt-name $(SERVER_ALT_NAME) \
 	--days-of-validity $(DAYS_OF_VALIDITY) \
-	--key-bits $(NUMBER_OF_PRIVATE_KEY_BITS) $(ECC_FLAGS)
+	--key-bits $(NUMBER_OF_PRIVATE_KEY_BITS) $(ECC_FLAGS) \
+	--ca-root-name $(CA_ROOT_NAME)
 
 gen-client:
 	$(PYTHON) profile.py generate-client --password $(PASS) \
