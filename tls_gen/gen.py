@@ -114,14 +114,14 @@ def prepare_ca_directory(dir_name):
     index_txt.close
 
 #
-# Root CA
+# Root CA, with validity 25 times validity for default server and client certificate. E.g. if client/server have 4 years the CA will be valid for 100 years.
 #
 
 def generate_root_ca(opts):
     prepare_ca_directory(root_ca_path())
     iso_date = datetime.now().isoformat()
     args = ["-x509",
-            "-days",    str(opts.validity_days),
+            "-days",    str(opts.validity_days*25),
             "-newkey",  "rsa:{}".format(opts.key_bits),
             "-keyout",  root_ca_key_path(),
             "-out",     root_ca_certificate_path(),
