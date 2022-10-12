@@ -172,6 +172,15 @@ can be changed by overriding the `DAYS_OF_VALIDITY` variable
 make DAYS_OF_VALIDITY=365
 ```
 
+### Overriding CA Certificate Root Name
+
+By default certificates will have a MegaRoot2000 name but it
+can be changed by overriding the `CA_ROOT_NAME` variable
+
+``` shell
+make CA_ROOT_NAME=BOOK-ROOT
+```
+
 ### Generating Expired Certificates
 
 It may be necessary to generate an expired certificate, e.g. to test TLS handshake

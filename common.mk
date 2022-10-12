@@ -90,7 +90,8 @@ regen:
 	--client-alt-name $(CLIENT_ALT_NAME) \
 	--server-alt-name $(SERVER_ALT_NAME) \
 	--days-of-validity $(DAYS_OF_VALIDITY) \
-	--key-bits $(NUMBER_OF_PRIVATE_KEY_BITS) $(ECC_FLAGS)
+	--key-bits $(NUMBER_OF_PRIVATE_KEY_BITS) $(ECC_FLAGS) \
+	--ca-root-name $(CA_ROOT_NAME)
 
 info:
 	$(PYTHON) profile.py info --common-name '$(CN)'
