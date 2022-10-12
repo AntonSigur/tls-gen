@@ -126,7 +126,7 @@ def generate_root_ca(opts):
             "-keyout",  root_ca_key_path(),
             "-out",     root_ca_certificate_path(),
             "-outform", "PEM",
-            "-subj",    opts.ca_root_anme]
+            "-subj",    opts.ca_root_name]
     if len(opts.password) > 0:
         args.append("-passout")
         args.append("pass:{}".format(opts.password))
