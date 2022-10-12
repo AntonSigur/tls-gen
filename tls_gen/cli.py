@@ -35,6 +35,9 @@ def build_parser():
     p.add_option("-V", "--days-of-validity", dest = "validity_days", action = "store",
                  help = "For how many days should generated certificates be valid?",
                  type = "int", default = 3650)
+    p.add_option("-C", "--ca-root-name", dest = "ca_root_name", action = "store",
+                 help = "What should be the name of the CA Root Certificate?",
+                 type = "string", default = "MegaRoot2000")                 
     return p
 
 def dispatch_command(commands, parser, args, options):
